@@ -10,7 +10,7 @@ public class EntityAttributeInit {
 
     public static void init() {
 
-        registerAttributes(EntityTypesInit.MOOBLOOM_REGISTRY_OBJECT.get(), MooshbloomModBaseCowEntity.registerAttributes());
+        registerAttributes(EntityTypesInit.MOOSHBLOOM_REGISTRY_OBJECT.get(), MooshbloomModBaseCowEntity.registerAttributes());
 
     }
     

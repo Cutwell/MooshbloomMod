@@ -15,10 +15,10 @@ public final class MooshbloomModConfig {
     //Common
 
 
-    public static List<String> moobloomSpawnBiomes;
-    public static int moobloomWeight;
-    public static int moobloomGroupMin;
-    public static int moobloomGroupMax;
+    public static List<String> mooshbloomSpawnBiomes;
+    public static int mooshbloomWeight;
+    public static int mooshbloomGroupMin;
+    public static int mooshbloomGroupMax;
 
 
     // Client

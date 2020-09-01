@@ -21,37 +21,7 @@ import java.util.stream.Stream;
 
 public final class BiomeSpawnHelper {
 
-    public static final String[] ALBINO_COW_SPAWN_BIOMES = getBiomesListFromBiomeTypes(BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.MOUNTAIN);
-    public static final String[] AMBER_CHICKEN_SPAWN_BIOMES = getBiomesListFromBiomeTypes(BiomeDictionary.Type.DRY, BiomeDictionary.Type.SAVANNA);
-    public static final String[] ASHEN_COW_SPAWN_BIOMES = getBiomesListFromBiomeTypes(BiomeDictionary.Type.MOUNTAIN);
-    public static final String[] BONE_SPIDER_SPAWN_BIOMES = getBiomesListFromBiomeTypes(BiomeDictionary.Type.MESA);
-    public static final String[] BRONZED_CHICKEN_SPAWN_BIOMES = getBiomesListFromBiomeTypes(BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.MOUNTAIN);
-    public static final String[] CLUCKSHROOM_SPAWN_BIOMES = getBiomesListFromBiomeTypes(BiomeDictionary.Type.MUSHROOM);
-    public static final String[] FLECKED_SHEEP_SPAWN_BIOMES = getBiomesListFromBiomeTypes(BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.MOUNTAIN, BiomeDictionary.Type.COLD, BiomeDictionary.Type.FOREST);
-    public static final String[] FURNACE_GOLEM_SPAWN_BIOMES = getBiomesListFromBiomeTypes(BiomeDictionary.Type.HOT);
-    public static final String[] GLOW_SQUID_SPAWN_BIOMES = getBiomesListFromBiomeTypes(BiomeDictionary.Type.OCEAN, BiomeDictionary.Type.RIVER, BiomeDictionary.Type.SWAMP);
-    public static final String[] HARELEQUIN_RABBIT_SPAWN_BIOMES = getBiomesListFromBiomeTypes(BiomeDictionary.Type.PLAINS);
-    public static final String[] HORNED_SHEEP_SPAWN_BIOMES = getBiomesListFromBiomeTypes(BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.MOUNTAIN);
-    public static final String[] INKY_SHEEP_SPAWN_BIOMES = getBiomesListFromBiomeTypes(BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.MOUNTAIN);
-    public static final String[] JOLLY_LLAMA_SPAWN_BIOMES = getBiomesListFromBiomeTypes(BiomeDictionary.Type.SNOWY);
-    public static final String[] JUMBO_RABBIT_SPAWN_BIOMES = getBiomesListFromBiomeTypes(BiomeDictionary.Type.PLAINS);
-    public static final String[] MELON_GOLEM_SPAWN_BIOMES = getBiomesListFromBiomeTypes(BiomeDictionary.Type.SNOWY);
-    public static final String[] MIDNIGHT_CHICKEN_SPAWN_BIOMES = getBiomesListFromBiomeTypes(BiomeDictionary.Type.FOREST, BiomeDictionary.Type.CONIFEROUS);
-    public static final String[] MOOBLOOM_SPAWN_BIOMES = getBiomesListFromBiomes(new String[]{"minecraft:flower_forest"});
-    public static final String[] MUDDY_FOOT_RABBIT_SPAWN_BIOMES = getBiomesListFromBiomeTypes(BiomeDictionary.Type.PLAINS);
-    public static final String[] MUDDY_PIG_SPAWN_BIOMES = getBiomesListFromBiomeTypes(BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.MOUNTAIN, BiomeDictionary.Type.RIVER);
-    public static final String[] PALE_PIG_SPAWN_BIOMES = getBiomesListFromBiomeTypes(BiomeDictionary.Type.SNOWY);
-    public static final String[] PIEBALD_PIG_SPAWN_BIOMES = getBiomesListFromBiomeTypes(BiomeDictionary.Type.FOREST, BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.MOUNTAIN, BiomeDictionary.Type.COLD, BiomeDictionary.Type.SAVANNA);
-    public static final String[] PINK_FOOTED_PIG_SPAWN_BIOMES = getBiomesListFromBiomeTypes(BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.MOUNTAIN);
-    public static final String[] RAINBOW_SHEEP_SPAWN_BIOMES = getBiomesListFromBiomeTypes(BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.FOREST);
-    public static final String[] ROCKY_SHEEP_SPAWN_BIOMES = getBiomesListFromBiomeTypes(BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.MOUNTAIN);
-    public static final String[] SKELETON_WOLF_SPAWN_BIOMES = getBiomesListFromBiomeTypes(BiomeDictionary.Type.FOREST, BiomeDictionary.Type.COLD, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.MESA);
-    public static final String[] SPOTTED_PIG_SPAWN_BIOMES = getBiomesListFromBiomeTypes(BiomeDictionary.Type.SWAMP);
-    public static final String[] STORMY_CHICKEN_SPAWN_BIOMES = getBiomesListFromBiomeTypes(BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.MOUNTAIN, BiomeDictionary.Type.COLD);
-    public static final String[] SUNSET_COW_SPAWN_BIOMES = getBiomesListFromBiomeTypes(BiomeDictionary.Type.SAVANNA);
-    public static final String[] TROPICAL_SLIME_SPAWN_BIOMES = getBiomesListFromBiomeTypes(BiomeDictionary.Type.BEACH);
-    public static final String[] VESTED_RABBIT_SPAWN_BIOMES = getBiomesListFromBiomeTypes(BiomeDictionary.Type.PLAINS);
-    public static final String[] WOOLY_COW_SPAWN_BIOMES = getBiomesListFromBiomeTypes(BiomeDictionary.Type.SNOWY);
+    public static final String[] MOOSHBLOOM_SPAWN_BIOMES = getBiomesListFromBiomes(new String[]{"minecraft:flower_forest"});
 
     private BiomeSpawnHelper() {
     }

@@ -14,10 +14,10 @@ public final class ConfigHelper {
 
     public static void bakeCommon(final net.minecraftforge.fml.config.ModConfig config) {
 
-        MooshbloomModConfig.moobloomSpawnBiomes = ConfigHolder.COMMON.moobloomSpawnBiomes.get();
-        MooshbloomModConfig.moobloomWeight = ConfigHolder.COMMON.moobloomWeight.get();
-        MooshbloomModConfig.moobloomGroupMin = ConfigHolder.COMMON.moobloomGroupMin.get();
-        MooshbloomModConfig.moobloomGroupMax = ConfigHolder.COMMON.moobloomGroupMax.get();
+        MooshbloomModConfig.mooshbloomSpawnBiomes = ConfigHolder.COMMON.mooshbloomSpawnBiomes.get();
+        MooshbloomModConfig.mooshbloomWeight = ConfigHolder.COMMON.mooshbloomWeight.get();
+        MooshbloomModConfig.mooshbloomGroupMin = ConfigHolder.COMMON.mooshbloomGroupMin.get();
+        MooshbloomModConfig.mooshbloomGroupMax = ConfigHolder.COMMON.mooshbloomGroupMax.get();
 
     }
 

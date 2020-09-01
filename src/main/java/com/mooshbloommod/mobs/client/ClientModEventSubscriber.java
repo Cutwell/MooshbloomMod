@@ -29,7 +29,7 @@ public final class ClientModEventSubscriber {
 
     private static void registerEntityRenderer() {
 
-        RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.MOOBLOOM_REGISTRY_OBJECT.get(), MooshbloomRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.MOOSHBLOOM_REGISTRY_OBJECT.get(), MooshbloomRenderer::new);
 
 
     }

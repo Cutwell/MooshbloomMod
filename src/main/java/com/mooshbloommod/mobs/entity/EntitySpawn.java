@@ -15,7 +15,7 @@ public class EntitySpawn {
 
     public static void init() {
 
-        registerAnimalEntitySpawn(EntityTypesInit.MOOBLOOM_REGISTRY_OBJECT.get(), MooshbloomModConfig.moobloomSpawnBiomes.toArray(new String[0]), MooshbloomModConfig.moobloomWeight, MooshbloomModConfig.moobloomGroupMin, MooshbloomModConfig.moobloomGroupMax);
+        registerAnimalEntitySpawn(EntityTypesInit.MOOSHBLOOM_REGISTRY_OBJECT.get(), MooshbloomModConfig.mooshbloomSpawnBiomes.toArray(new String[0]), MooshbloomModConfig.mooshbloomWeight, MooshbloomModConfig.mooshbloomGroupMin, MooshbloomModConfig.mooshbloomGroupMax);
 
     }
 

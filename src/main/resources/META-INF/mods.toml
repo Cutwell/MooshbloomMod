@@ -1,16 +1,17 @@
 modLoader="javafml"
 loaderVersion="[32,)"
+license="MIT License"
 issueTrackerURL="https://github.com/Cutwell/MooshbloomMod/issues"
 
 [[mods]]
 modId="mooshbloommod"
 version="1.0.0"
 displayName="Mooshbloom Mod"
-credits="Slexom"
+credits="Cutwell, Slexom"
 authors="Cutwell"
 logoFile="logo.png"
 displayURL="https://github.com/Cutwell/MooshbloomMod"
-description='''Bring mobs from Minecraft Earth to Minecraft Java Edition.'''
+description='''Introducing the Mooshbloom!'''
 updateJSONURL="https://raw.githubusercontent.com/Cutwell/MooshbloomMod/master/update.json"
 
 [[dependencies.mooshbloommod]]

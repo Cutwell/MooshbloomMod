@@ -1,6 +1,7 @@
 ## Mooshbloom Mod
 
 ![MC 1.16.1](https://img.shields.io/badge/MC-1.16.1-blue)
+![Forge 32.0.x](https://img.shields.io/badge/Forge-32.0.x-critical)
 ![License MIT](https://img.shields.io/badge/License-MIT-blue)
 
 ### Description
@@ -13,4 +14,4 @@ The Mooshbloom entity has several features:
 - Mooshblooms are attracted to bee nests..
 - .. and bees will aggressively defend Mooshblooms!
 
-Thanks to for Slexom for the inital Moobloom port in his Earth2Java mod.
+Thanks to for Slexom for the inital Moobloom port in their Earth2Java mod.

@@ -40,7 +40,7 @@ public class MooshbloomMod {
         modLoadingContext.registerConfig(ModConfig.Type.CLIENT, ConfigHolder.CLIENT_SPEC);
         modLoadingContext.registerConfig(ModConfig.Type.SERVER, ConfigHolder.SERVER_SPEC);
         modLoadingContext.registerConfig(ModConfig.Type.COMMON, ConfigHolder.COMMON_SPEC);
-        LOGGER.info("Mod loaded! Enjoy :D");
+        LOGGER.info("Mooshbloom Mod loaded! Enjoy :D");
     }
 
 

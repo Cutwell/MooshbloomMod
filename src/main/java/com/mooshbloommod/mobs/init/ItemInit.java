@@ -18,7 +18,7 @@ public class ItemInit {
     // SPAWN EGGS
     private static final Item.Properties spawnEggProps = new Item.Properties().group(itemGroup);
 
-    public static final RegistryObject<ModdedSpawnEggItem> MOOBLOOM_SPAWN_EGG = registerSpawnEgg(EntityTypesInit.MOOBLOOM_REGISTRY_NAME, EntityTypesInit.MOOBLOOM_REGISTRY_OBJECT, 0xfaca00, 0xf7edc1);
+    public static final RegistryObject<ModdedSpawnEggItem> MOOSHBLOOM_SPAWN_EGG = registerSpawnEgg(EntityTypesInit.MOOSHBLOOM_REGISTRY_NAME, EntityTypesInit.MOOSHBLOOM_REGISTRY_OBJECT, 0xfaca00, 0xf7edc1);
 
     private static RegistryObject<ModdedSpawnEggItem> registerSpawnEgg(String entityRegistryName, RegistryObject<? extends EntityType<?>> entity, int primaryColor, int secondaryColor) {
         return ITEMS.register(entityRegistryName + "_spawn_egg", () -> new ModdedSpawnEggItem(entity, primaryColor, secondaryColor, spawnEggProps));

@@ -46,7 +46,7 @@ public class MooshbloomEntity extends MooshbloomModBaseCowEntity<MooshbloomEntit
     // store UUID of last lightening bolt to hit
     private UUID lightningUUID;
 
-    private static final DataParameter<String> MOOBLOOM_TYPE = EntityDataManager.createKey(MooshbloomEntity.class, DataSerializers.STRING);
+    private static final DataParameter<String> MOOSHBLOOM_TYPE = EntityDataManager.createKey(MooshbloomEntity.class, DataSerializers.STRING);
 
     public boolean setMoobloomAttacker(Entity attacker) {
         this.func_230260_a__(400 + this.rand.nextInt(400));
@@ -152,7 +152,7 @@ public class MooshbloomEntity extends MooshbloomModBaseCowEntity<MooshbloomEntit
             type = Type.DANDELION;
         }
 
-        this.dataManager.register(MOOBLOOM_TYPE, type.name);
+        this.dataManager.register(MOOSHBLOOM_TYPE, type.name);
     }
 
     public void writeAdditional(CompoundNBT compound) {
@@ -170,18 +170,18 @@ public class MooshbloomEntity extends MooshbloomModBaseCowEntity<MooshbloomEntit
 
 
     private void setMoobloomType(MooshbloomEntity.Type typeIn) {
-        this.dataManager.set(MOOBLOOM_TYPE, typeIn.name);
+        this.dataManager.set(MOOSHBLOOM_TYPE, typeIn.name);
     }
 
     public MooshbloomEntity.Type getMoobloomType() {
-        return MooshbloomEntity.Type.getTypeByName(this.dataManager.get(MOOBLOOM_TYPE));
+        return MooshbloomEntity.Type.getTypeByName(this.dataManager.get(MOOSHBLOOM_TYPE));
     }
 
     @Override
     public MooshbloomEntity createChild(AgeableEntity ageable) {
-        MooshbloomEntity moobloomentity = (MooshbloomEntity) getType().create(this.world);
-        moobloomentity.setMoobloomType(this.func_213445_a((MooshbloomEntity)ageable));
-        return moobloomentity;
+        MooshbloomEntity mooshbloomentity = (MooshbloomEntity) getType().create(this.world);
+        mooshbloomentity.setMoobloomType(this.func_213445_a((MooshbloomEntity)ageable));
+        return mooshbloomentity;
     }
 
 
@@ -255,9 +255,9 @@ public class MooshbloomEntity extends MooshbloomModBaseCowEntity<MooshbloomEntit
         }
 
         private static MooshbloomEntity.Type getTypeByName(String nameIn) {
-            for(MooshbloomEntity.Type moobloomentity$type : values()) {
-                if (moobloomentity$type.name.equals(nameIn)) {
-                    return moobloomentity$type;
+            for(MooshbloomEntity.Type mooshbloomentity$type : values()) {
+                if (mooshbloomentity$type.name.equals(nameIn)) {
+                    return mooshbloomentity$type;
                 }
             }
 
