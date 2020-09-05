@@ -18,6 +18,8 @@ import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.particles.ParticleTypes;
+import net.minecraft.tags.FluidTags;
+import net.minecraft.tags.ITag;
 import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -32,6 +34,9 @@ import com.mooshbloommod.mobs.entity.base.MooshbloomModBaseCowEntity;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.UUID;
 
 public class MooshbloomEntity extends MooshbloomModBaseCowEntity<MooshbloomEntity> implements IAngerable, IForgeShearable {
@@ -141,16 +146,10 @@ public class MooshbloomEntity extends MooshbloomModBaseCowEntity<MooshbloomEntit
     protected void registerData() {
         super.registerData();
 
-        // random assignment
-        int i = (int) (Math.random() * 2);
-        Type type;
-
-        if (i == 0) {
-            type = Type.POPPY;
-        }
-        else {
-            type = Type.DANDELION;
-        }
+        // random flower type assignment
+        List<Type> types = Arrays.asList(Type.DANDELION, Type.POPPY, Type.BLUE_ORCHID, Type.ALLIUM, Type.AZURE_BLUET, Type.RED_TULIP, Type.ORANGE_TULIP, Type.WHITE_TULIP, Type.PINK_TULIP, Type.OXEYE_DAISY, Type.CORNFLOWER, Type.LILY_OF_THE_VALLEY);
+        int i = (int) (Math.random() * types.size());
+        Type type = types.get(i);
 
         this.dataManager.register(MOOSHBLOOM_TYPE, type.name);
     }
@@ -184,59 +183,59 @@ public class MooshbloomEntity extends MooshbloomModBaseCowEntity<MooshbloomEntit
         return mooshbloomentity;
     }
 
+    // find closest flower type
+    private Block getClosestFlower(MooshbloomEntity parent, List<Block> matches) {
+        Block champion = null;
+        double champion_distance = 0;
 
-    // find closest dandelion and poppy flowers
-    //
-    private BlockPos getClosestFlower(MooshbloomEntity parent, Block target) {
-        // check all blocks in area
-        for(BlockPos blockpos : BlockPos.getAllInBoxMutable(MathHelper.floor(parent.getPosX() - 16.0D), MathHelper.floor(parent.getPosY() - 16.0D), MathHelper.floor(parent.getPosZ() - 16.0D), MathHelper.floor(parent.getPosX() + 16.0D), MathHelper.floor(parent.getPosY()), MathHelper.floor(parent.getPosZ() + 16.0D))) {
-            // if block is target
-            if (parent.world.getBlockState(blockpos).getBlock().getClass().equals(target.getClass())) {
-                return blockpos;
+        for(BlockPos blockpos : BlockPos.getAllInBoxMutable(MathHelper.floor(parent.getPosX() - 4.0D), MathHelper.floor(parent.getPosY() - 4.0D), MathHelper.floor(parent.getPosZ() - 4.0D), MathHelper.floor(parent.getPosX() + 4.0D), MathHelper.floor(parent.getPosY()), MathHelper.floor(parent.getPosZ() + 4.0D))) {
+            Block newblock = parent.world.getBlockState(blockpos).getBlock();
+            if (matches.contains(newblock.getClass())) {
+                double distance = parent.getDistanceSq(blockpos.getX(), blockpos.getY(), blockpos.getZ());
+                if (champion == null) {
+                    champion = newblock;
+                    champion_distance = distance;
+                }
+                if (distance < champion_distance) {
+                    champion = newblock;
+                    champion_distance = distance;
+                }
             }
         }
-        return null;
+        return champion;
     }
 
     // decide flower type
     private MooshbloomEntity.Type func_213445_a(MooshbloomEntity p_213445_1_) {
-        BlockPos blockpos_poppy = null;
-        BlockPos blockpos_dandelion = null;
+        List<Block> matches = Arrays.asList(Blocks.DANDELION, Blocks.POPPY, Blocks.BLUE_ORCHID, Blocks.ALLIUM, Blocks.AZURE_BLUET, Blocks.RED_TULIP, Blocks.ORANGE_TULIP, Blocks.WHITE_TULIP, Blocks.PINK_TULIP, Blocks.OXEYE_DAISY, Blocks.CORNFLOWER, Blocks.LILY_OF_THE_VALLEY);
+        List<Type> types = Arrays.asList(Type.DANDELION, Type.POPPY, Type.BLUE_ORCHID, Type.ALLIUM, Type.AZURE_BLUET, Type.RED_TULIP, Type.ORANGE_TULIP, Type.WHITE_TULIP, Type.PINK_TULIP, Type.OXEYE_DAISY, Type.CORNFLOWER, Type.LILY_OF_THE_VALLEY);
+        Block match = null;
+        match = getClosestFlower(p_213445_1_, matches);
 
-        blockpos_poppy = getClosestFlower(p_213445_1_, Blocks.POPPY);
-        blockpos_dandelion = getClosestFlower(p_213445_1_, Blocks.DANDELION);
-
-        if (blockpos_poppy != null && blockpos_dandelion != null) {
-            // closest flower if both flowers present
-            BlockPos current_pos = p_213445_1_.func_233580_cy_();
-
-            if (blockpos_dandelion.distanceSq(current_pos) > blockpos_poppy.distanceSq(current_pos)) {
-                return Type.POPPY;
-            }
-            else {
-                return Type.DANDELION;
-            }
-        }
-
-        else if (blockpos_dandelion == null) {
-            // no competition
-            return Type.POPPY;
-        }
-
-        else if (blockpos_poppy == null) {
-            // no competition
-            return Type.DANDELION;
-        }
-
-        else {
-            // else, parent type if no nearby flowers
+        // parent type if no flowers nearby
+        if (match == null) {
             return this.getMoobloomType();
         }
+
+        // return type of nearest flower
+        int i = matches.indexOf(match);
+        return types.get(i);
     }
 
     public static enum Type {
+        // all single block height flowers are potential mooshbloom types!
         POPPY("poppy", Blocks.POPPY.getDefaultState()),
-        DANDELION("dandelion", Blocks.DANDELION.getDefaultState());
+        DANDELION("dandelion", Blocks.DANDELION.getDefaultState()),
+        ALLIUM("allium", Blocks.ALLIUM.getDefaultState()),
+        BLUE_ORCHID("blue_orchid", Blocks.BLUE_ORCHID.getDefaultState()),
+        AZURE_BLUET("azure_bluet", Blocks.AZURE_BLUET.getDefaultState()),
+        RED_TULIP("red_tulip", Blocks.RED_TULIP.getDefaultState()),
+        ORANGE_TULIP("orange_tulip", Blocks.ORANGE_TULIP.getDefaultState()),
+        WHITE_TULIP("white_tulip", Blocks.WHITE_TULIP.getDefaultState()),
+        PINK_TULIP("pink_tulip", Blocks.PINK_TULIP.getDefaultState()),
+        OXEYE_DAISY("oxeye_daisy", Blocks.OXEYE_DAISY.getDefaultState()),
+        CORNFLOWER("cornflower", Blocks.CORNFLOWER.getDefaultState()),
+        LILY_OF_THE_VALLEY("lily_of_the_valley", Blocks.LILY_OF_THE_VALLEY.getDefaultState());
 
         private final String name;
         private final BlockState renderState;
@@ -261,7 +260,10 @@ public class MooshbloomEntity extends MooshbloomModBaseCowEntity<MooshbloomEntit
                 }
             }
 
-            return POPPY;
+            // default random type
+            List<Type> types = Arrays.asList(Type.DANDELION, Type.POPPY, Type.BLUE_ORCHID, Type.ALLIUM, Type.AZURE_BLUET, Type.RED_TULIP, Type.ORANGE_TULIP, Type.WHITE_TULIP, Type.PINK_TULIP, Type.OXEYE_DAISY, Type.CORNFLOWER, Type.LILY_OF_THE_VALLEY);
+            int i = (int) (Math.random() * types.size());
+            return types.get(i);
         }
     }
 

@@ -2,6 +2,7 @@ package com.mooshbloommod.mobs.client.renderer.entity;
 
 import com.google.common.collect.Maps;
 import com.mooshbloommod.mobs.entity.passive.MooshbloomEntity;
+import net.minecraft.block.Blocks;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.client.renderer.entity.model.CowModel;
@@ -24,6 +25,16 @@ public class MooshbloomRenderer extends MobRenderer<MooshbloomEntity, CowModel<M
     private static final Map<MooshbloomEntity.Type, String> field_217774_a = Util.make(Maps.newHashMap(), (p_217773_0_) -> {
         p_217773_0_.put(MooshbloomEntity.Type.DANDELION, "dandelion");
         p_217773_0_.put(MooshbloomEntity.Type.POPPY, "poppy");
+        p_217773_0_.put(MooshbloomEntity.Type.ALLIUM, "allium");
+        p_217773_0_.put(MooshbloomEntity.Type.BLUE_ORCHID, "blue_orchid");
+        p_217773_0_.put(MooshbloomEntity.Type.AZURE_BLUET, "azure_bluet");
+        p_217773_0_.put(MooshbloomEntity.Type.RED_TULIP, "red_tulip");
+        p_217773_0_.put(MooshbloomEntity.Type.ORANGE_TULIP, "orange_tulip");
+        p_217773_0_.put(MooshbloomEntity.Type.WHITE_TULIP, "white_tulip");
+        p_217773_0_.put(MooshbloomEntity.Type.PINK_TULIP, "pink_tulip");
+        p_217773_0_.put(MooshbloomEntity.Type.OXEYE_DAISY, "oxeye_daisy");
+        p_217773_0_.put(MooshbloomEntity.Type.CORNFLOWER, "cornflower");
+        p_217773_0_.put(MooshbloomEntity.Type.LILY_OF_THE_VALLEY, "lily_of_the_valley");
     });
 
     /**
